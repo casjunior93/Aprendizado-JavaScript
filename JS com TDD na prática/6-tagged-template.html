@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .green {
+      color: green;
+      font-size: 25px;
+    }
+  </style>
+  <body>
+    <script>
+      const city = "Dublin";
+      const something = "Galwess";
+      const otherthing = "Leprechaum";
+
+      function green(template, ...values) {
+        return template.reduce((acumulado, parte, i) => {
+          return `
+            ${acumulado}
+            <span class ="green">${values[i - 1].toUpperCase()}</span>
+            ${parte}
+            `;
+        });
+      }
+
+      const ireland = green`I live in ${city} the city of ${something} and ${otherthing}`;
+
+      document.body.innerHTML = ireland;
+    </script>
+  </body>
+</html>

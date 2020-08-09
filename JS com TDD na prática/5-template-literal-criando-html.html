@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const article = {
+        title: "Aprendendo template Strings",
+        intro: "Uma breve explicação de como utilizar ...",
+        body: "Lorem ipsum dolor sit amet, consectetur adipis...",
+        tags: ["es6", "js", "template-literal"],
+        autor: "Carlos Alberto",
+      };
+
+      function renderAutor(name) {
+        return name ? name : "unknown";
+      }
+
+      const markup = `
+      <article>
+        <header>
+            <h1>${article.title}</h1></h1>
+        </header>
+        <section>
+            <p>${article.intro}</p>
+        </section>
+        <footer>
+            <ul>
+                ${article.tags.map((tag) => `<li>${tag}</li>`).join("")}
+            </ul>
+
+            <p>Autor: ${renderAutor(article.autor)}</p>
+
+        </footer>            
+      </article>
+      `;
+      document.body.innerHTML = markup;
+    </script>
+  </body>
+</html>

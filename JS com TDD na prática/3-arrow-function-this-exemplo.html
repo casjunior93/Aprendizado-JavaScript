@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="btn">Click-me</button>
+
+    <script>
+      const sandwich = {
+        bread: "white",
+        cheese: "cheddar",
+
+        prepare: function () {
+          return "Sandwich with " + this.bread + " and " + this.cheese;
+        },
+
+        make: function () {
+          // //cria uma variavel neste escopo recebendo o valor do this de fora, do sandwich
+          // var that = this;
+          // window.setTimeout(function () {
+          //   console.log(that.prepare());
+          // }, 2000);
+
+          //com arrow function, pega o contexto de sandwich inteira
+          var that = this;
+          window.setTimeout(() => {
+            console.log(this.prepare());
+          }, 500);
+        },
+      };
+
+      const btn = document.getElementById("btn");
+      btn.addEventListener("click", function () {
+        sandwich.make();
+      });
+    </script>
+  </body>
+</html>
+
+<!-- O objeto window faz a manipulação das janelas do navegador. Sempre que abrirmos o navegador automaticamente esse objeto é gerado, isso acontece porque esse objeto representa exatamente essa janela que foi aberta. Para esse objeto ser criado não precisamos usar nenhum tipo de linguagem, como HTML, pois isso é feito automaticamente pelo navegador. -->

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="btn">Click-me</button>
+    <button id="btn2">Click-me</button>
+    <script>
+      //this com relação a ação que está acontecendo
+      const btn = document.getElementById("btn");
+      btn.addEventListener("click", function () {
+        console.log(this);
+      });
+
+      //this com arrow function - contexto de tudo o que está acontecendo
+      const btn2 = document.getElementById("btn2");
+      btn2.addEventListener("click", () => console.log(this));
+    </script>
+  </body>
+</html>
